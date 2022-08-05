@@ -8,23 +8,23 @@ def lista_clientes(request):
     return render(request, "cliente/list_cliente.html",{"clientes": clientes})
 
 
-def nuevo_clientes(request):
+def nuevo_cliente(request):
     
     if request.method == 'POST':
         form = Formulario_clientes(request.POST)
 
         if form.is_valid():
             Cliente.objects.create(
-                name = form.cleaned_data['name'],
-                price = form.cleaned_data['price'],
-                description = form.cleaned_data['description'],
-                stock = form.cleaned_data['stock']
+                nombre = form.cleaned_data['nombre'],
+                direccion = form.cleaned_data['direccion'],
+                telefono = form.cleaned_data['telefono'],
+                email = form.cleaned_data['email']
             )
             
             return redirect(lista_clientes)
 
     elif request.method == 'GET':
-        form = Formulario_productos()
+        form = Formulario_clientes()
         context = {'form':form}
-        return render(request, 'products/new_product.html', context=context)
+        return render(request, 'cliente/new_cliente.html', context=context)
 
