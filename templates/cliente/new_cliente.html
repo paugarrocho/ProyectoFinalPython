@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Carga de Clientes
+{% endblock %}
+
+{% block contenido %}
+
+<form action="" method="POST">
+{% csrf_token %}
+
+<table>
+
+    {{form.as_table}}
+
+</table>
+
+<p><input type="submit" value="Enviar"></p>
+
+</form>
+
+
+{% endblock %}
