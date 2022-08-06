@@ -6,6 +6,7 @@ urlpatterns = [
     
     path('lista_clientes/', views.lista_clientes, name="lista_clientes"),
     path('nuevo_cliente/', views.nuevo_cliente, name='nuevo_cliente'),
+    path('buscar_cliente/', views.buscar_cliente, name='buscar_cliente'),
     
 
 ]

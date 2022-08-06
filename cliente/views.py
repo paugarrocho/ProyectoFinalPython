@@ -28,3 +28,9 @@ def nuevo_cliente(request):
         context = {'form':form}
         return render(request, 'cliente/new_cliente.html', context=context)
 
+def buscar_cliente(request):
+    buscar = request.GET['buscar']
+    clientes = Cliente.objects.filter(nombre__icontains=buscar) 
+    context = {'clientes':clientes}
+    return render(request, 'cliente/buscar_cliente.html', context=context)
+
