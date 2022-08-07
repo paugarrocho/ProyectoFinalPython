@@ -25,5 +25,5 @@ def nueva_categoria(request):
     elif request.method == 'GET':
         form = Formulario_categorias()
         context = {'form':form}
-        return render(request, 'cliente/new_categoria.html', context=context)
+        return render(request, 'categoria/new_categoria.html', context=context)
 
