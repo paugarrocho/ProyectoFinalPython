@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Productos
+{% endblock %}
+
+{% block contenido %}
+<h1 style="margin-left:30rem">Listado de Productos</h1>
+<div class="container">
+    <h1>---------------------------------------------</h1>
+</div>
+
+{% for producto in productos %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                   <h5>{{producto.nombre}}</h5>
+            </div>
+            <div class="col-sm">
+                <h5>{{producto.stock}}</h5>
+            </div>
+            <div class="col-sm">
+                <h5>{{producto.precio}}</h5>
+            </div>
+            <div class="col-sm">
+                <h5>{{producto.categoria}}</h5>
+                
+            </div>
+            <div class="col-sm">
+                
+                
+            </div>
+            
+                           
+        </div>
+     
+        
+    </div>
+{% endfor %}
+
+<div class="container">
+    <h1>---------------------------------------------</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">               
+        </div>
+
+        <div class="col-sm">
+            <a href="/producto/nuevo_producto/" class="btn btn-primary">Nuevo</a>
+            
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

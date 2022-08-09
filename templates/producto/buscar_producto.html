@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Clientes
+{% endblock %}
+
+{% block contenido %}
+<h1 style="margin-left:30rem">Clientes encontrados</h1>
+<div class="container">
+    <h1>---------------------------------------------</h1>
+</div>
+
+{% for cliente in clientes%}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                   <h5>{{cliente.nombre}}</h5>
+            </div>
+            <div class="col-sm">
+                <h5>{{cliente.direccion}}</h5>
+            </div>
+            <div class="col-sm">
+                <h5>{{cliente.telefono}}</h5>
+            </div>
+            <div class="col-sm">
+                
+            </div>
+            
+                           
+        </div>
+     
+        
+    </div>
+{% endfor %}
+
+<div class="container">
+    <h1>---------------------------------------------</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">               
+        </div>
+
+        <div class="col-sm">
+            <a href="/cliente/nuevo_cliente/" class="btn btn-primary">Nuevo</a>
+            
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
