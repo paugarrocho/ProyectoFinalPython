@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from producto.forms import Formulario_producto
 from producto.models import Producto
@@ -30,9 +31,15 @@ def nuevo_producto(request):
         return render(request, 'producto/new_producto.html', context=context)
 
 def buscar_producto(request):
+
     buscar = request.GET['buscar']
     productos = Producto.objects.filter(nombre__icontains=buscar) 
     context = {'productos':productos}
     return render(request, 'producto/buscar_producto.html', context=context)
 
+    
 
+       
+
+        
+        
