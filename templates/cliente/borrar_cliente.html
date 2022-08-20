@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Borrar cliente
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+
+    <h4>Cliente: {{object.nombre}}</h4>
+
+    <p>Esta seguro que desea eliminarlo?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+</form>
+</div>
+
+
+
+{% endblock %}
