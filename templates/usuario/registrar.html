@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Registrarse
+{% endblock %}
+
+{% block contenido %}
+
+<form action="" method="POST">
+{% csrf_token %}
+
+    <table>
+
+        {{form.as_table}}
+
+    </table>
+
+    <p><input type="submit" value="Registrar"></p>
+
+    </form>
+
+
+{% endblock %}

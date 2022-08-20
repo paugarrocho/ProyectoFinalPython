@@ -36,6 +36,23 @@
                 <li class="nav-item" style="margin-right: 30rem">
                     <a class="nav-link" href="/nosotros/">Sobre nosotros</a>
                 </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link">Usuario: {{user.username}}</a> 
+                </li>
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="/usuario/salir/">Salir</a> 
+                </li>
+                {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/usuario/entrar/">Entrar</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/usuario/registrar/">Registrarse</a>
+                </li>
+                {% endif %}
+
                 
             </ul>
             <form class="form-inline my-2 my-lg-0" action = "/cliente/buscar_cliente/" method = "GET">
