@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Borrar categoría
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+
+    <h4>Categoría: {{object.nombre}}</h4>
+
+    <p>¿Está seguro que desea eliminarla?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+</form>
+</div>
+
+
+
+{% endblock %}
