@@ -1,26 +1,22 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block titulo %}
 Inicio
 {% endblock %}
 
 {% block contenido %}
 
-<h1 style="margin-left:30rem">Integrantes del grupo</h1>
-
-
-
+<section class="page-section clearfix">
     <div class="container">
-        <div class="row">
-            <h3>Paula Garrocho</h3>
-        </div>
-        <div class="row">
-            <h3>Pedro Sosa Welford</h3>
-        </div>
-        <div class="row">
-            <h3>Reinaldo Miguel Arce</h3>
-        </div>
-           
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'AppProyectoFinal/principal.jpg' %}" alt="">
+        
+      </div>
     </div>
+  </section>
+
+
 
 {% endblock %}

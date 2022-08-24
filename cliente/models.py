@@ -9,6 +9,7 @@ class Cliente(models.Model):
     email=models.EmailField()
     created=models.DateTimeField(auto_now_add=True)
     
+    
 
     class Meta:
         verbose_name="Cliente"

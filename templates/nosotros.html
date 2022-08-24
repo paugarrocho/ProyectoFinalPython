@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block titulo %}
 Inicio
 {% endblock %}
@@ -11,16 +13,32 @@ Inicio
 
 
     <div class="container">
+        <div class="intro">
         <p>Somos alumnos del curso PYTHON clase 31090 de CODERHOUSE</p>
-        <P>Somos un grupo apasionados por la programacion y desarrollo web que busca continua capacitacion para proponer soluciones informaticas a problemas cotidianos y empresariales</P>
-        <p>Diseñamos esta aplicacion web de tienda On-Line para demostrar que hemos aprendido los contenidos de la clase teórica ya finalizada.</p>
-        <p>Estamos convencidos de que este producto web se merece la mejor calificación posible. ;-)</p>
+        <P>Somos un grupo apasionados por la programacion y desarrollo web que busca continua capacitacion para proponer soluciones informaticas a problemas cotidianos y empresariales.</P>
+        <p>Diseñamos esta aplicacion web de tienda On-Line para que los usuarios puedan realizar sus comprar sin moverse de sus casas.</p>
+        <p></p>
+        </div>
         <P>Somos:</P>
-        <ol>
-            <li>Paula Garrocho - Ingeniera en Sistemas</li>
-            <li>Pedro Sosa - Diseñador Grafico</li>
-            <li>Miguel Arce - Analista Programador</li>
-        </ol>
+        <div class="row">
+            <div class="col-sm">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'AppProyectoFinal/Pedro.jpg' %}" alt="">
+                <li>Pedro Sosa - Diseñador Grafico</li>
+            </div>
+            <div class="col-sm">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'AppProyectoFinal/Paula.jpg' %}" alt="">
+                <li>Paula Garrocho - Desarrolladora web</li>
+            </div>
+            <div class="col-sm">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'AppProyectoFinal/miguel.jpg' %}" alt="">
+                <li>Miguel Arce - Analista Programador</li>
+            </div>
+                       
+        </div>
+        
     </div>
+
+      
+    
 
 {% endblock %}

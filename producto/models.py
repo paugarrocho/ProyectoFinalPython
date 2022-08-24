@@ -10,6 +10,7 @@ class Producto(models.Model):
     stock=models.IntegerField()
     precio=models.FloatField()
     categoria=models.ForeignKey(Categorias, on_delete=models.CASCADE)
+    disponibilidad=models.BooleanField(default=True)
     
     
 
