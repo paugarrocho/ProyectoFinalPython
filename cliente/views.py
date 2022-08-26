@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from cliente.forms import Formulario_clientes
 from cliente.models import Cliente
-from django.views.generic import  DeleteView
+from django.views.generic import  DeleteView, DetailView
 # Create your views here.
 
 def lista_clientes(request):
     clientes=Cliente.objects.all()
     return render(request, "cliente/list_cliente.html",{"clientes": clientes})
-
 
 def nuevo_cliente(request):
     
@@ -66,6 +65,10 @@ class Borrar_cliente(DeleteView):
     model = Cliente
     template_name = 'cliente/borrar_cliente.html'
     success_url = '/cliente/lista_clientes/'
+
+class Detalle_cliente(DetailView):
+    model = Cliente
+    template_name = 'cliente/detalle_cliente.html'
 
 
 

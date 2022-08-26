@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views
-from cliente.views import Borrar_cliente
+from cliente.views import Borrar_cliente, Detalle_cliente
 
 urlpatterns = [
     
@@ -10,6 +10,7 @@ urlpatterns = [
     path('buscar_cliente/', views.buscar_cliente, name='buscar_cliente'),
     path('borrar_cliente/<int:pk>/', Borrar_cliente.as_view(), name='borrar_cliente'),
     path('editar_cliente/<int:pk>/', views.editar_cliente, name='editar_cliente'),
+    path('detalle_cliente/<int:pk>/', Detalle_cliente.as_view(), name='detalle_cliente'),
     
 
 ]

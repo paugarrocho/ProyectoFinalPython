@@ -7,8 +7,6 @@
 {% block contenido %}
 <h1 style="margin-left:30rem">Listado de clientes</h1>
 
-
-    
 {% for cliente in clientes %}
     <div class="container">
         <h5>----------------------------------------------------------------------------------------------------------</h5>
@@ -17,25 +15,18 @@
             <div class="col-sm">
                    <h5>{{cliente.nombre}}</h5>
             </div>
+                        
             <div class="col-sm">
-                <h5>{{cliente.direccion}}</h5>
+                <a href="/cliente/detalle_cliente/{{cliente.id}}/" class="btn btn-primary">Detalle</a>
+                
             </div>
-            <div class="col-sm">
-                <h5>{{cliente.telefono}}</h5>
-            </div>
-            <div class="col-sm">
-                <a href="/cliente/editar_cliente/{{cliente.id}}" class="btn btn-primary">Editar</a>
-                <a href="/cliente/borrar_cliente/{{cliente.id}}/" class="btn btn-danger">Borrar</a>
-            </div>
-            <div class="col-sm"></div>
-            
-                           
+                                      
         </div>
      
         
     </div>
 {% endfor %}
-
+    
 <div class="container">
     <h5>----------------------------------------------------------------------------------------------------------</h5>
     <a href="/cliente/nuevo_cliente/" class="btn btn-primary">Nuevo</a>
