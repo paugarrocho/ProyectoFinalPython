@@ -7,7 +7,7 @@ class Cliente(models.Model):
     direccion=models.CharField(max_length=50)
     telefono=models.CharField(max_length=15)
     email=models.EmailField()
-    created=models.DateTimeField(auto_now_add=True)
+    
     
     
 

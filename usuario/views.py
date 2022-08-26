@@ -47,4 +47,4 @@ def registrar(request):
 
 def mostrar_perfil(request):
     if request.user.is_authenticated:
-        return HttpResponse(request.user.profile.phone)
+        return HttpResponse(request.user.perfil.telefono)

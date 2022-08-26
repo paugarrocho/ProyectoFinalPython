@@ -7,4 +7,4 @@ class Perfil_usuario(models.Model):
     imagen = models.ImageField(upload_to='perfil_imagen/', blank=True)
 
     def __str__(self):
-        return self.user.username + ' - perfil'
+        return self.usuario.username + ' - perfil'
