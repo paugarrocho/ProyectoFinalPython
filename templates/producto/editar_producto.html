@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Edicion de Producto
+{% endblock %}
+
+{% block contenido %}
+
+<form action="" method="POST">
+{% csrf_token %}
+<h1 style="margin-left:30rem">Edición de productos</h1>
+<div class="container">
+<table>
+
+    {{form.as_table}}
+
+</table>
+</div>
+<div class="container">
+<p><input type="submit" value="Enviar"></p>
+</div>
+</form>
+
+
+{% endblock %}
