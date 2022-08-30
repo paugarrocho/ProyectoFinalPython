@@ -68,7 +68,7 @@ class Borrar_producto(DeleteView):
     template_name = 'producto/borrar_producto.html'
     success_url = '/producto/list_productos/'
 
-class detalle_producto(DetailView):
+class Detalle_producto(DetailView):
     model = Producto
     template_name = 'producto/detalle_producto.html'
 
