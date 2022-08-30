@@ -2,6 +2,7 @@ from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from producto.forms import Formulario_producto
 from producto.models import Producto
+from django.views.generic import  DeleteView, DetailView
 # Create your views here.
 
 def lista_productos(request):
@@ -36,6 +37,40 @@ def buscar_producto(request):
     productos = Producto.objects.filter(nombre__icontains=buscar) 
     context = {'productos':productos}
     return render(request, 'producto/buscar_producto.html', context=context)
+
+def editar_producto(request, pk):
+    if request.method == 'POST':
+        form = Formulario_producto(request.POST)
+        if form.is_valid():
+            producto = Producto.objects.get(id=pk)
+            producto.nombre = form.cleaned_data['nombre']
+            producto.stock = form.cleaned_data['stock']
+            producto.precio =  form.cleaned_data['precio']
+            producto.categoria = form.cleaned_data['categoria']
+            producto.save()
+
+            return redirect(lista_productos)
+
+
+    elif request.method == 'GET':
+        producto = Producto.objects.get(id=pk)
+
+        form = Formulario_producto(initial={
+                                        'nombre':producto.nombre,
+                                        'stock':producto.stock, 
+                                        'precio':producto.precio,
+                                        'categoria':producto.categoria})
+        context = {'form':form}
+        return render(request, 'producto/editar_producto.html', context=context)
+
+class Borrar_producto(DeleteView):
+    model = Producto
+    template_name = 'producto/borrar_producto.html'
+    success_url = '/producto/list_productos/'
+
+class detalle_producto(DetailView):
+    model = Producto
+    template_name = 'producto/detalle_producto.html'
 
     
 
