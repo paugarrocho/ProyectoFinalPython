@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
-
+from .models import Perfil_usuario
 from django.contrib.auth import login, logout, authenticate
 
 from usuario.forms import Formulario_registro
@@ -46,5 +46,8 @@ def registrar(request):
         return render(request, 'usuario/registrar.html', {'form': form})
 
 def mostrar_perfil(request):
+    
     if request.user.is_authenticated:
-        return HttpResponse(request.user.perfil.telefono)
+        return render(request,'usuario/perfil.html')        
+
+
