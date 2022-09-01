@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Lista de productos
+{% endblock %}
+
+{% block contenido  %}
+
+<h1 style="margin-left:30rem">Detalle de producto</h1>
+
+
+<div class="container">
+    <h5>------------------------------------------------------------------------------------------------------------------------</h5>
+    
+    <div class="row">
+        <div class="col-sm">
+            <h5>{{object.nombre}}</h5>
+        </div>
+        <div class="col-sm">
+            
+            <h5>{{object.stock}}</h5>
+        </div>
+        <div class="col-sm">
+            
+            <h5>{{object.precio}}</h5>
+        </div>
+        <div class="col-sm">
+            
+            <h5>{{object.categoria}}</h5>
+        </div>
+                    
+        <div class="col-sm">
+            
+            <a href="/producto/editar_producto/{{producto.id}}" class="btn btn-primary">Editar</a>
+            <a href="/producto/borrar_producto/{{producto.id}}/" class="btn btn-danger">Borrar</a>
+        </div>
+        <div class="col-sm"></div>
+                               
+    </div>
+ 
+    
+</div>
+
+
+<div class="container">
+    <h5>------------------------------------------------------------------------------------------------------------------------</h5>
+<a href="/producto/nuevo_producto/" class="btn btn-primary">Nuevo</a>
+</div>
+
+{% endblock %}
