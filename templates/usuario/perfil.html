@@ -9,31 +9,25 @@
 {% block contenido %}
 
 <div class="container">
-    
-  <div class="row">
-        
-            <div class="col-md-4">
-                <div class="card" style="width: 100%; margin: 5px 5px;">
+                   
+            <div class="card" style="width: 100%; margin: 5px 5px; align-content: center;">
                 
-                    <div class="card-header text-center">
+                <div class="card-header text-center">
                         <h4>Perfil</h4>
-                    </div>
-                    <div class="card-body" style="text-align: center ;">
-                        <h6>Usuario: {{request.user.perfil.usuario}}</h6>
-                        <h6>Telefono: {{request.user.perfil.telefono}}</h6>
-                        <h6>Direccion: {{request.user.perfil.direccion}}</h6>
-                    </div>
-                
-                    <div class="card-footer text-center">
-                        <img src="{% static '../media/' %}{{request.user.perfil.imagen}}" >
-                    </div>
-                
                 </div>
-            
+                <div class="card-body" style="text-align: center ;">
+                    <h6>Usuario: {{request.user.perfil.usuario}}</h6>
+                    <h6>Telefono: {{request.user.perfil.telefono}}</h6>
+                    <h6>Direccion: {{request.user.perfil.direccion}}</h6>
+                    <img src="{% static '../media/' %}{{request.user.perfil.imagen}}" >
+                </div>
+                
+                <div class="card-footer text-center">
+                    <a href="/usuario/editar_usuario/{{request.user.perfil.id}}" class="btn btn-primary">Editar</a>
+                </div>
+                
             </div>
-        
-  
-    </div>
+   
 </div>
   
 

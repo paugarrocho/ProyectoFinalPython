@@ -14,3 +14,9 @@ class Formulario_registro(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
         help_texts = {k:'' for k in fields}
+
+
+class Formulario_usuario(forms.Form):
+    telefono = forms.CharField()
+    direccion = forms.CharField(max_length=50)
+    imagen = forms.ImageField()
