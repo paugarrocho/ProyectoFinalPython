@@ -80,5 +80,9 @@ def editar_usuario(request, pk):
 class Detalle_usuario(DetailView):
     model = Perfil_usuario
     template_name = 'usuario/detalle_usuario.html'
+   
+    
+    
+
 
 
