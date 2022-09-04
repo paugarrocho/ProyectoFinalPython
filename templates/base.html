@@ -38,7 +38,8 @@
                 </li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/usuario/perfil/">Usuario: {{user.username}}</a> 
+                    <a class="nav-link" href="/usuario/detalle_usuario/{{request.user.perfil.id}}">Usuario: {{user.username}}</a>
+                    <!-- <a class="nav-link" href="/usuario/perfil/">Usuario: {{user.username}}</a> -->
                 </li>
                 
                 <li class="nav-item active">

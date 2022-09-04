@@ -9,8 +9,6 @@ class Cliente(models.Model):
     email=models.EmailField()
     
     
-    
-
     class Meta:
         verbose_name="Cliente"
         verbose_name_plural="Clientes"

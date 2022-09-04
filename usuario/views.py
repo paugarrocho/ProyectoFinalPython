@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Perfil_usuario
 from django.contrib.auth import login, logout, authenticate
+from django.views.generic import  DetailView
 
 from usuario.forms import Formulario_registro, Formulario_usuario
 
@@ -53,15 +54,16 @@ def mostrar_perfil(request):
 
 def editar_usuario(request, pk):
     if request.method == 'POST':
-        form = Formulario_usuario(request.POST)
+        form = Formulario_usuario(request.POST, request.FILES)
+        print(form.errors)
         if form.is_valid():
             usuario = Perfil_usuario.objects.get(id=pk)
             usuario.direccion = form.cleaned_data['direccion']
             usuario.telefono = form.cleaned_data['telefono']
             usuario.imagen = form.cleaned_data['imagen']
             usuario.save()
-
-        return redirect('perfil')
+                    
+        return redirect('index')
 
 
     elif request.method == 'GET':
@@ -73,5 +75,10 @@ def editar_usuario(request, pk):
                                         'imagen':usuario.imagen})
         context = {'form':form}
         return render(request, 'usuario/editar_usuario.html', context=context)    
+
+
+class Detalle_usuario(DetailView):
+    model = Perfil_usuario
+    template_name = 'usuario/detalle_usuario.html'
 
 
