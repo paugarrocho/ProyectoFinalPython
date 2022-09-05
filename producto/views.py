@@ -3,13 +3,16 @@ from django.shortcuts import render, redirect
 from producto.forms import Formulario_producto
 from producto.models import Producto
 from django.views.generic import  DeleteView, DetailView
-# Create your views here.
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+@login_required
 def lista_productos(request):
     productos=Producto.objects.all()
     return render(request, "producto/list_producto.html",{"productos": productos})
 
 
+@login_required
 def nuevo_producto(request):
     
     if request.method == 'POST':
@@ -63,12 +66,12 @@ def editar_producto(request, pk):
         context = {'form':form}
         return render(request, 'producto/editar_producto.html', context=context)
 
-class Borrar_producto(DeleteView):
+class Borrar_producto(LoginRequiredMixin,DeleteView):
     model = Producto
     template_name = 'producto/borrar_producto.html'
     success_url = '/producto/list_productos/'
 
-class Detalle_producto(DetailView):
+class Detalle_producto(LoginRequiredMixin,DetailView):
     model = Producto
     template_name = 'producto/detalle_producto.html'
 

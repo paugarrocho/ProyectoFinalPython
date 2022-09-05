@@ -7,14 +7,15 @@ from .models import Perfil_usuario
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic import  DetailView
-
+from django.contrib.auth.decorators import login_required
 from usuario.forms import Formulario_registro, Formulario_usuario
 
 
-
+@login_required
 def lista_usuarios(request):
     usuarios=User.objects.all()
     return render(request, "usuario/lista_usuarios.html",{"usuarios": usuarios})
+
 
 def pedido_entrada(request):
     if request.method == 'POST':
@@ -55,11 +56,13 @@ def registrar(request):
         form = Formulario_registro()
         return render(request, 'usuario/registrar.html', {'form': form})
 
+@login_required
 def mostrar_perfil(request):
     
     if request.user.is_authenticated:
         return render(request,'usuario/perfil.html')
 
+@login_required
 def editar_usuario(request, pk):
     if request.method == 'POST':
         form = Formulario_usuario(request.POST, request.FILES)
@@ -81,6 +84,7 @@ def editar_usuario(request, pk):
                                         'imagen':usuario.imagen})
         context = {'form':form}
         return render(request, 'usuario/editar_usuario.html', context=context)    
+
 
 
 class Detalle_usuario(DetailView):
