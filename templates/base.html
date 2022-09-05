@@ -33,17 +33,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/categoria/categoria/">Categorías</a>
                 </li>
-                <li class="nav-item" style="margin-right: 30rem">
+                <li class="nav-item">
                     <a class="nav-link" href="/nosotros/">Sobre nosotros</a>
                 </li>
-                {% if request.user.is_authenticated %}
-                
-                <li class="nav-item">
-                                        
-                    <a class="nav-link" href="/usuario/detalle_usuario/{{request.user.perfil.id}}">Usuario: {{user.username}}</a>
-                                      
+                {% if request.user.is_superuser %}
+                <li class="nav-item" style="margin-right: 30rem">
+                    <a class="nav-link" href="/usuario/lista_usuarios/">Usuarios</a>
                 </li>
-                
+                {% endif %}
+                {% if request.user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link">Usuario: {{user.username}}</a>              
+               </li>
+                {% if request.user.perfil.id %}
+                <li class="nav-item">
+                     <a class="nav-link" href="/usuario/detalle_usuario/{{request.user.perfil.id}}">Perfil</a>              
+                </li>
+                {% endif %}
                 <li class="nav-item active">
                     <a class="nav-link" href="/usuario/salir/">Salir</a> 
                 </li>
@@ -58,10 +65,7 @@
 
                 
             </ul>
-            <form class="form-inline my-2 my-lg-0" action = "/cliente/buscar_cliente/" method = "GET">
-                <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" name = 'buscar'>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            
         </div>
     
     </nav>

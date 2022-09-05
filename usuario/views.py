@@ -4,11 +4,17 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Perfil_usuario
+from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic import  DetailView
 
 from usuario.forms import Formulario_registro, Formulario_usuario
 
+
+
+def lista_usuarios(request):
+    usuarios=User.objects.all()
+    return render(request, "usuario/lista_usuarios.html",{"usuarios": usuarios})
 
 def pedido_entrada(request):
     if request.method == 'POST':
@@ -57,7 +63,7 @@ def mostrar_perfil(request):
 def editar_usuario(request, pk):
     if request.method == 'POST':
         form = Formulario_usuario(request.POST, request.FILES)
-        print(form.errors)
+        
         if form.is_valid():
             usuario = Perfil_usuario.objects.get(id=pk)
             usuario.direccion = form.cleaned_data['direccion']
@@ -81,6 +87,8 @@ class Detalle_usuario(DetailView):
     model = Perfil_usuario
     template_name = 'usuario/detalle_usuario.html'
     
+
+
     
     
 

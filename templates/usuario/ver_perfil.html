@@ -16,16 +16,13 @@
                         <h4>Perfil</h4>
                 </div>
                 <div class="card-body" style="text-align: center ;">
-                    <h6>Usuario: {{request.user.perfil.usuario}}</h6>
-                    <h6>Telefono: {{request.user.perfil.telefono}}</h6>
-                    <h6>Direccion: {{request.user.perfil.direccion}}</h6>
-                    <img src="{% static '../media/' %}{{request.user.perfil.imagen}}" >
+                    
+                    <h6>Telefono: {{object.telefono}}</h6>
+                    <h6>Direccion: {{object.direccion}}</h6>
+                    <img src="{{object.imagen.url}}" >
                 </div>
                 
-                <div class="card-footer text-center">
-                    <!-- <a href="/usuario/editar_usuario/{{request.user.perfil.id}}" class="btn btn-primary">Editar</a> -->
-                </div>
-                
+                                
             </div>
    
 </div>

@@ -26,4 +26,4 @@ class Formulario_usuario(ModelForm):
 
     class Meta:
         model = Perfil_usuario
-        fields = ('telefono', 'direccion', 'imagen')
+        fields = ('usuario','telefono', 'direccion', 'imagen')
