@@ -1,4 +1,5 @@
 
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
@@ -33,6 +34,7 @@ def pedido_entrada(request):
 
 def registrar(request):
     if request.method == 'POST':
+        
         form = Formulario_registro(request.POST)
         if form.is_valid():
             form.save()
@@ -65,10 +67,8 @@ def editar_usuario(request, pk):
                     
         return redirect('index')
 
-
     elif request.method == 'GET':
         usuario = Perfil_usuario.objects.get(id=pk)
-
         form = Formulario_usuario(initial={
                                         'direccion':usuario.direccion, 
                                         'telefono':usuario.telefono,
@@ -80,7 +80,7 @@ def editar_usuario(request, pk):
 class Detalle_usuario(DetailView):
     model = Perfil_usuario
     template_name = 'usuario/detalle_usuario.html'
-   
+    
     
     
 
