@@ -40,15 +40,20 @@
                 <li class="nav-item" style="margin-right: 30rem">
                     <a class="nav-link" href="/usuario/lista_usuarios/">Usuarios</a>
                 </li>
+                {% else %}
+                <li class="nav-item" style="margin-right: 30rem">
+                    <a class="nav-link" ></a>
+                </li>
+
                 {% endif %}
                 {% if request.user.is_authenticated %}
 
-                <li class="nav-item">
+                <li class="nav-item" >
                     <a class="nav-link">Usuario: {{user.username}}</a>              
                </li>
                 {% if request.user.perfil.id %}
                 <li class="nav-item">
-                     <a class="nav-link" href="/usuario/detalle_usuario/{{request.user.perfil.id}}">Perfil</a>              
+                     <a class="nav-link" href="/usuario/detalle_usuario/{{request.user.perfil.id}}">Mi perfil</a>              
                 </li>
                 {% endif %}
                 <li class="nav-item active">

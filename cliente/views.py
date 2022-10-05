@@ -2,12 +2,16 @@ from django.shortcuts import render, redirect
 from cliente.forms import Formulario_clientes
 from cliente.models import Cliente
 from django.views.generic import  DeleteView, DetailView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
+@login_required
 def lista_clientes(request):
     clientes=Cliente.objects.all()
     return render(request, "cliente/list_cliente.html",{"clientes": clientes})
 
+@login_required
 def nuevo_cliente(request):
     
     if request.method == 'POST':
@@ -35,6 +39,7 @@ def buscar_cliente(request):
     return render(request, 'cliente/buscar_cliente.html', context=context)
 
 
+@login_required
 def editar_cliente(request, pk):
     if request.method == 'POST':
         form = Formulario_clientes(request.POST)
@@ -61,12 +66,13 @@ def editar_cliente(request, pk):
         return render(request, 'cliente/editar_cliente.html', context=context)
 
 
-class Borrar_cliente(DeleteView):
+
+class Borrar_cliente(LoginRequiredMixin,DeleteView):
     model = Cliente
     template_name = 'cliente/borrar_cliente.html'
     success_url = '/cliente/lista_clientes/'
 
-class Detalle_cliente(DetailView):
+class Detalle_cliente(LoginRequiredMixin,DetailView):
     model = Cliente
     template_name = 'cliente/detalle_cliente.html'
 
